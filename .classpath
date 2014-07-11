@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="/home/camilothorne/Google Drive/Comp-Sem-Frameworks/WordNet/jaws-bin.jar"/>
 	<classpathentry kind="lib" path="/home/camilothorne/Google Drive/Comp-Sem-Frameworks/VerbNet/java-api/edu.mit.jverbnet-1.2.0.jar"/>
 	<classpathentry kind="lib" path="/home/camilothorne/Google Drive/Comp-Sem-Frameworks/VerbNet/inspector-java-api/vn.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/rw-files"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
