@@ -14,7 +14,7 @@ public class MyGuidBatchTest extends MyGuidBatch{
 	// annotate test guideline
 	public static void main(String[] args) {
 		
-		new MyGuidBatchTest("/home/camilo/Desktop/test.guid");
+		new MyGuidBatchTest("/home/camilothorne/meta_map_bionlp/meta-map-gold/mmap-exp-data/test.guid");
 
 	}
 
