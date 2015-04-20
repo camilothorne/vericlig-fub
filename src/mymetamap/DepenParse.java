@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Set;
 import java.io.StringReader;
 
-import tests.MMTagger;
+import webservice.MMTagger;
 
 
 //stanford dep parser + pos/sem tags

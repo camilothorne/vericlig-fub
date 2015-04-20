@@ -16,8 +16,8 @@ public class WekaHelloB extends WekaHello {
     // main method
     public static void main (String[] args){
     	
-    	String train1 = "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/semrepB-small.arff";
-    	String eval1  = "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/semrepB.arff";
+    	String train1 = "/home/camilo/meta-map-exp/meta-map-gold/semrepB-small.arff";
+    	String eval1  = "/home/camilo/meta-map-exp/meta-map-gold/semrepB.arff";
     	
     	try{
     		System.out.println("###====================================###");	

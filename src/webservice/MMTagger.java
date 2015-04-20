@@ -1,4 +1,4 @@
-package tests;
+package webservice;
 
 
 import gov.nih.nlm.nls.skr.*;
@@ -79,10 +79,12 @@ public class MMTagger{
           	  System.out.print("###     JOB Nr. "+ n +"\n");
           	  System.out.print("####################################################\n\n");
           	  prettyPrintA(results);
+          	  System.out.print(results);          	  
            }
           else{
         	  System.out.print("\n####################################################\n");
         	  prettyPrintA(results);
+          	  System.out.print(results);    
           }
        } 
        catch (RuntimeException ex) {

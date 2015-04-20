@@ -32,7 +32,7 @@ public class ReadXMLFile implements MyFeature{
 	
 		
 	// path of file annotated corpus
-	//public static final String sample = "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/test.xml";
+	//public static String sample = "/home/camilo/meta-map-exp/meta-map-gold/test.xml";
 	
 	
 	// MetaMap server host

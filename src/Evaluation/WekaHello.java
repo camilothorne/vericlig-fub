@@ -455,7 +455,7 @@ public class WekaHello {
 	// save classification model
 	public static void saveModel(Classifier myclass, String name) throws Exception{
         ObjectOutputStream oos = new ObjectOutputStream(
-        		new FileOutputStream("/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/experiments/"+name+".model"));
+        		new FileOutputStream("/home/camilo/meta-map-exp/meta-map-gold/experiments/"+name+".model"));
         oos.writeObject(myclass);
         oos.flush();
         oos.close();		
@@ -465,7 +465,7 @@ public class WekaHello {
 	// load classification model
 	public static Classifier openModel(String name) throws Exception{
         ObjectInputStream ois = new ObjectInputStream(
-        		new FileInputStream("/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/experiments/"+name+".model"));
+        		new FileInputStream("/home/camilo/Desktop/meta-map-exp/meta-map-gold/experiments/"+name+".model"));
         Classifier cls = (Classifier) ois.readObject();
         ois.close();
         return cls;

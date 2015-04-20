@@ -26,7 +26,7 @@ public class Annotation {
 		  int serverport = MetaMapApi.DEFAULT_SERVER_PORT; 	// default port
 		  int timeout = -1; // use default timeout		  
 		  // we instantiate the class
-		  String path = "/home/camilo/Desktop/mmap-exp-data/mmcorpus-raw.guid";
+		  String path = "/home/camilo/meta-map-exp/mmcorpus-raw.guid";
 		  GuidAnn frontEnd = new GuidAnn(serverhost, serverport, path); // result object
 		  // timeout
 		  if (timeout > -1) {

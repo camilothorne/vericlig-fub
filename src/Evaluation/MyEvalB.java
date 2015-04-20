@@ -455,14 +455,14 @@ public class MyEvalB {
     // main method
     public static void main (String[] args){
     	
-    	String train1 = "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/semrepB-small.arff";
-    	String eval1  = "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/semrepB.arff";
+    	String train1 = "/home/camilo/meta-map-exp/meta-map-gold/semrepB-small.arff";
+    	String eval1  = "/home/camilo/meta-map-exp/meta-map-gold/semrepB.arff";
     	
-    	String train2 = "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/semrepB2-small.arff";
-    	String eval2  = "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/semrepB2.arff";
+    	String train2 = "/home/camilo/meta-map-exp/meta-map-gold/semrepB2-small.arff";
+    	String eval2  = "/home/camilo/meta-map-exp/meta-map-gold/semrepB2.arff";
     	
-    	String train3 = "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/semrep-relation-small.arff";
-    	String eval3  = "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/semrep-relation.arff";
+    	String train3 = "/home/camilo/meta-map-exp/meta-map-gold/semrep-relation-small.arff";
+    	String eval3  = "/home/camilo/meta-map-exp/meta-map-gold/semrep-relation.arff";
     	
     	try{
     		

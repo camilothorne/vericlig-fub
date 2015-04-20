@@ -1,4 +1,4 @@
-package tests;
+package webservice;
 
 import java.io.*;
 import gov.nih.nlm.nls.skr.*;

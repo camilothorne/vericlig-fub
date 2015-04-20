@@ -15,9 +15,9 @@ public class RelationVectorB extends RelationVector{
 	
 	
 	// Fields
-	private final ReadXMLFile file = new ReadXMLFile("/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/adjudicated.xml"); // corpus
+	private final ReadXMLFile file = new ReadXMLFile("/home/camilo/meta-map-exp/meta-map-gold/adjudicated.xml"); // corpus
 	private static ArrayList<mySentence> mysents; // extracted sentences
-	private static String mypath = "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/"; // file to save	
+	private static String mypath = "/home/camilo/meta-map-exp/meta-map-gold/"; // file to save	
     private static String mytype = "relation.arff"; // file to save
     
     

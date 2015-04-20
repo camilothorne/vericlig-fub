@@ -2,15 +2,22 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/camilothorne/nlp-libs/stan-parser-2012/stanford-parser.jar"/>
-	<classpathentry kind="lib" path="/home/camilothorne/Google Drive/Comp-Sem-Frameworks/stanford-parser-2012-05-22/stanford-parser-2012-05-22-models.jar"/>
-	<classpathentry kind="lib" path="/home/camilothorne/Google Drive/Comp-Sem-Frameworks/meta_map_bio_nlp/MetaMapApi.jar"/>
-	<classpathentry kind="lib" path="/home/camilothorne/Google Drive/Comp-Sem-Frameworks/meta_map_bio_nlp/skrAPI.jar"/>
-	<classpathentry kind="lib" path="/home/camilothorne/nlp-libs/weka-3.7.6/weka-3.7.6.jar"/>
-	<classpathentry kind="lib" path="/home/camilothorne/Google Drive/Comp-Sem-Frameworks/stanford-parser-2012-05-22/Interface/DependenSee.jar"/>
-	<classpathentry kind="lib" path="/home/camilothorne/Google Drive/Comp-Sem-Frameworks/WordNet/jaws-bin.jar"/>
-	<classpathentry kind="lib" path="/home/camilothorne/Google Drive/Comp-Sem-Frameworks/VerbNet/java-api/edu.mit.jverbnet-1.2.0.jar"/>
-	<classpathentry kind="lib" path="/home/camilothorne/Google Drive/Comp-Sem-Frameworks/VerbNet/inspector-java-api/vn.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/rw-files"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/rw-files"/>
+	<classpathentry kind="lib" path="/home/camilo/nlp-frameworks/weka/mulan-1.4.0/weka-3.7.6.jar"/>
+	<classpathentry kind="lib" path="/home/camilo/nlp-semantics/stanford-parser-2012-05-22/stanford-parser.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/stanford-parser-2012-05-22/stanford-parser-2012-05-22-models.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/WordNet/jaws-bin.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/VerbNet/inspector-java-api/vn.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/VerbNet/java-api/edu.mit.jverbnet-1.2.0.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/stanford-parser-2012-05-22/Interface/DependenSee.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/java-api-jars/MetaMapApi.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/MedPost-SKR/lib/mps.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/SKR_Web_API_V2_1/lib/skrAPI.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/SKR_Web_API_V2_1/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/SKR_Web_API_V2_1/lib/httpclient-4.1.1.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/SKR_Web_API_V2_1/lib/httpclient-cache-4.1.1.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/SKR_Web_API_V2_1/lib/httpcore-4.1.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/SKR_Web_API_V2_1/lib/httpcore-nio-4.1.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/SKR_Web_API_V2_1/lib/httpmime-4.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
