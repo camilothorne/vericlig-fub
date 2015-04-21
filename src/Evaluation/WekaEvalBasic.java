@@ -42,7 +42,7 @@ import rw.Write; // to write stuff on files
 // reports.
 //
 //
-public class MyEvalB {
+public class WekaEvalBasic {
 
 	
 	// A.1 Fields
@@ -59,7 +59,7 @@ public class MyEvalB {
 	
 	
 	// constructor
-	public MyEvalB(String train_file, String eval_file, String typ, Experiment resul) throws Exception{
+	public WekaEvalBasic(String train_file, String eval_file, String typ, Experiment resul) throws Exception{
 		
 		
 		// classifiers
@@ -432,7 +432,7 @@ public class MyEvalB {
 	// save classification model
 	public static void saveModel(Classifier myclass, String name) throws Exception{
         ObjectOutputStream oos = new ObjectOutputStream(
-        		new FileOutputStream("/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/experiments/"+name+".model"));
+        		new FileOutputStream("/home/camilo/meta-map-exp/experiments/"+name+".model"));
         oos.writeObject(myclass);
         oos.flush();
         oos.close();		
@@ -442,7 +442,7 @@ public class MyEvalB {
 	// load classification model
 	public static Classifier openModel(String name) throws Exception{
         ObjectInputStream ois = new ObjectInputStream(
-        		new FileInputStream("/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/experiments/"+name+".model"));
+        		new FileInputStream("/home/camilo/meta-map-exp/experiments/"+name+".model"));
         Classifier cls = (Classifier) ois.readObject();
         ois.close();
         return cls;
@@ -455,14 +455,14 @@ public class MyEvalB {
     // main method
     public static void main (String[] args){
     	
-    	String train1 = "/home/camilo/meta-map-exp/meta-map-gold/semrepB-small.arff";
-    	String eval1  = "/home/camilo/meta-map-exp/meta-map-gold/semrepB.arff";
+    	String train1 = "/home/camilo/meta-map-exp/semrepB-small.arff";
+    	String eval1  = "/home/camilo/meta-map-exp/semrepB.arff";
     	
-    	String train2 = "/home/camilo/meta-map-exp/meta-map-gold/semrepB2-small.arff";
-    	String eval2  = "/home/camilo/meta-map-exp/meta-map-gold/semrepB2.arff";
+    	String train2 = "/home/camilo/meta-map-exp/semrepB2-small.arff";
+    	String eval2  = "/home/camilo/meta-map-exp/semrepB2.arff";
     	
-    	String train3 = "/home/camilo/meta-map-exp/meta-map-gold/semrep-relation-small.arff";
-    	String eval3  = "/home/camilo/meta-map-exp/meta-map-gold/semrep-relation.arff";
+    	String train3 = "/home/camilo/meta-map-exp/semrep-relation-small.arff";
+    	String eval3  = "/home/camilo/meta-map-exp/semrep-relation.arff";
     	
     	try{
     		
@@ -470,21 +470,21 @@ public class MyEvalB {
     		System.out.println("### A. activity (no context)");
     		System.out.println("###====================================###");
     		Experiment expA = new Experiment("activity",10);
-    		new MyEvalB(train1,eval1,"uni",expA);
+    		new WekaEvalBasic(train1,eval1,"uni",expA);
     		new SaveExperiment(expA);
     		
     		System.out.println("\n###====================================###");
     		System.out.println("### B. activity (context)");
     		System.out.println("###====================================###");
     		Experiment expB = new Experiment("activity-con",10);
-    		new MyEvalB(train2,eval2,"bi",expB);
+    		new WekaEvalBasic(train2,eval2,"bi",expB);
     		new SaveExperiment(expB);
     		
     		System.out.println("\n###====================================###");
     		System.out.println("### C. relation");
     		System.out.println("###====================================###");
     		Experiment expC = new Experiment("relation",10);
-    		new MyEvalB(train3,eval3,"sel",expC);
+    		new WekaEvalBasic(train3,eval3,"sel",expC);
     		new SaveExperiment(expC);
     		
     	}
@@ -734,9 +734,9 @@ class SaveExperiment{
 		System.out.println("\n----------(Files to save)----------\n");
 		
 		// cross-validation
-		String path1 	= "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/experiments/"+exp.name+"-"+exp.fold+"cross.tex"; 	// .tex to save
-		String path2 	= "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/experiments/"+exp.name+"-"+exp.fold+"cross.csv"; 	// .csv to save
-		String path2B 	= "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/experiments/"+exp.name+"-"+exp.fold+"crossF.csv"; 	// .csv to save			
+		String path1 	= "/home/camilo/meta-map-exp/experiments/"+exp.name+"-"+exp.fold+"cross.tex"; 	// .tex to save
+		String path2 	= "/home/camilo/meta-map-exp/experiments/"+exp.name+"-"+exp.fold+"cross.csv"; 	// .csv to save
+		String path2B 	= "/home/camilo/meta-map-exp/experiments/"+exp.name+"-"+exp.fold+"crossF.csv"; 	// .csv to save			
 		this.latexcross = setLatexA();
 		new Write(path1,this.latexcross);
 		this.csvcross  = exp.mycsvA;
@@ -746,9 +746,9 @@ class SaveExperiment{
 		new Write(path2B,this.csvFcross);
 		
 		// custom
-		String path3 	= "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/experiments/"+exp.name+"-custom.tex"; 	// .tex to save
-		String path4 	= "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/experiments/"+exp.name+"-custom.csv"; 	// .csv to save
-		String path4B	= "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/experiments/"+exp.name+"-customF.csv"; // .csv to save
+		String path3 	= "/home/camilo/meta-map-exp/experiments/"+exp.name+"-custom.tex"; 	// .tex to save
+		String path4 	= "/home/camilo/meta-map-exp/experiments/"+exp.name+"-custom.csv"; 	// .csv to save
+		String path4B	= "/home/camilo/meta-map-exp/experiments/"+exp.name+"-customF.csv"; // .csv to save
 		this.latexcustom = setLatexB();
 		new Write(path3,this.latexcustom);
 		this.csvcustom 	= exp.mycsvB;

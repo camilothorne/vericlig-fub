@@ -8,7 +8,7 @@ import gov.nih.nlm.nls.metamap.MetaMapApi;
 
 
 // Class for running guideline annotations
-public class Annotation {
+public class AnnotationTest {
 	
 	
 	  // Main method

@@ -1,4 +1,4 @@
-package tests;
+package webservice;
 
 
 import mymetamap.MyGuidBatch;
@@ -14,7 +14,7 @@ public class MyGuidBatchTest extends MyGuidBatch{
 	// annotate test guideline
 	public static void main(String[] args) {
 		
-		new MyGuidBatchTest("/home/camilo/meta-map-exp/meta-map-gold/mmap-exp-data/test.guid");
+		new MyGuidBatchTest("/home/camilo/meta-map-exp/mmap-exp-data/test.guid");
 
 	}
 

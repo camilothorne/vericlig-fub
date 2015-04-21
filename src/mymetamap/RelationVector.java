@@ -213,11 +213,16 @@ public class RelationVector{
 	
 	
 	// constructor
-	public RelationVector(String name, ArrayList<mySentence> sents, String filepath, String type) throws Exception{
+	public RelationVector(String name, ArrayList<mySentence> sents, 
+			String filepath, String type) throws Exception{
+		
 		abbv = new Abbrev();
 		// init samples
 		this.myNPs = new ArrayList<RelObservation>();
 		// assign samples
+		
+		System.out.print(sents);
+		
 		for (mySentence sen: sents){
 			for (myNounPhrase np: sen.noun_phrases){
 				RelObservation obs = new RelObservation(np,sen.senlabels,abbv);

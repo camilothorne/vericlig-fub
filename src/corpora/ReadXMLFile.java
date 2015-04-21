@@ -68,7 +68,7 @@ public class ReadXMLFile implements MyFeature{
 		// we harvest the annotations
 		mineNPs(ann);
 		// we print the corpus
-		//printAnnotations();
+		printAnnotations();
 		if (timeout > -1) {
 			ann.setTimeout(timeout);
 		}

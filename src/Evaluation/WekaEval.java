@@ -40,7 +40,7 @@ import weka.classifiers.meta.Bagging;
 
 
 // simple evaluation class
-public class WekaHello {
+public class WekaEval {
 
 	
 	// A.1 Fields
@@ -58,7 +58,7 @@ public class WekaHello {
 	
 	
 	// constructor function
-	public WekaHello(String train_file, String eval_file) throws Exception{
+	public WekaEval(String train_file, String eval_file) throws Exception{
 		
 		setTrain(train_file); 		// set trainset
 		setEvaluation(eval_file); 	// set eval set
@@ -455,7 +455,7 @@ public class WekaHello {
 	// save classification model
 	public static void saveModel(Classifier myclass, String name) throws Exception{
         ObjectOutputStream oos = new ObjectOutputStream(
-        		new FileOutputStream("/home/camilo/meta-map-exp/meta-map-gold/experiments/"+name+".model"));
+        		new FileOutputStream("/home/camilo/meta-map-exp/experiments/"+name+".model"));
         oos.writeObject(myclass);
         oos.flush();
         oos.close();		
@@ -465,7 +465,7 @@ public class WekaHello {
 	// load classification model
 	public static Classifier openModel(String name) throws Exception{
         ObjectInputStream ois = new ObjectInputStream(
-        		new FileInputStream("/home/camilo/Desktop/meta-map-exp/meta-map-gold/experiments/"+name+".model"));
+        		new FileInputStream("/home/camilo/Desktop/meta-map-exp/experiments/"+name+".model"));
         Classifier cls = (Classifier) ois.readObject();
         ois.close();
         return cls;
