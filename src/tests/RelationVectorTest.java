@@ -1,17 +1,19 @@
-package corpora;
+package tests;
 
 
 import java.util.ArrayList;
 
+import corpora.ReadXMLFile;
+import features.RelationVector;
 
-import mymetamap.RelationVector;
+
 import mymetamap.mySentence;
 
 
 // Instantiates RelationVector to an specific
 // annotated corpus
 // 
-public class RelationVectorB extends RelationVector{
+public class RelationVectorTest extends RelationVector{
 	
 	
 	// Fields
@@ -22,7 +24,7 @@ public class RelationVectorB extends RelationVector{
     
     
     // Constructor
-    public RelationVectorB(String name) throws Exception{    	
+    public RelationVectorTest(String name) throws Exception{    	
     	
     	// We call the superclass constructor
     	super(name, mysents, mypath, mytype);

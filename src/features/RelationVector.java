@@ -1,10 +1,13 @@
-package mymetamap;
+package features;
 
 
 import java.util.ArrayList;
 import java.util.Set;
 
-import corpora.ReadXMLFile;
+import mymetamap.Abbrev;
+import mymetamap.myNounPhrase;
+import mymetamap.mySentence;
+
 
 import rw.Write;
 
@@ -16,7 +19,7 @@ import rw.Write;
 
 // This class extracts the clinical entities/terms
 // with their labels from the MetaMap corpus
-class Observation{
+class RelObservation{
 
 	
 	// key features (for identification)	
@@ -42,6 +45,9 @@ class Observation{
 	public  float 				similB;  // similarity (value in [0,1]) between label and NP (second measure)
 	public  float 				similC;  // similarity (value in [0,1]) between head N and NP (third measure)
 	
+	// relation
+	public 	String 				relation; // relation
+	
 	
 	// ===========
 	// Extensions:
@@ -55,7 +61,7 @@ class Observation{
 		
 	
 	// constructor
-	public Observation(myNounPhrase np, 
+	public RelObservation(myNounPhrase np, 
 			Set<String> senlabels, Abbrev myab){
 		// simple
 		this.words 			 = np.phrase;
@@ -90,6 +96,7 @@ class Observation{
 		this.similC 		= computeSimC(np.nphead.labels,np.labels);
 		this.similB 		= computeSimB(np.simp_labels,this.simplabel,myab);
 		// relations
+		this.relation		= myab.simplifyRel(np.relation_label);
 	}
 		
 	
@@ -198,102 +205,58 @@ class Observation{
 //----------------------
 
 
-public class FeatureVector{
+public class RelationVector{
 	
 	
 	// extra fields 
 	private static Abbrev abbv;
-	private static ReadXMLFile file;
-	
+		
 	
 	// NPs
-	public ArrayList<Observation> myNPs;
+	public ArrayList<RelObservation> myNPs;
 	
 	
 	// constructor
-	public FeatureVector(String name) throws Exception{
-		file = new ReadXMLFile("/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/adjudicated.xml");
+	public RelationVector(String name, ArrayList<mySentence> sents, 
+			String filepath, String type) throws Exception{
+		
 		abbv = new Abbrev();
 		// init samples
-		this.myNPs = new ArrayList<Observation>();
+		this.myNPs = new ArrayList<RelObservation>();
 		// assign samples
-		ArrayList<mySentence> sents = file.sentences;
+		
+		System.out.print(sents);
+		
 		for (mySentence sen: sents){
 			for (myNounPhrase np: sen.noun_phrases){
-				Observation obs = new Observation(np,sen.senlabels,abbv);
+				RelObservation obs = new RelObservation(np,sen.senlabels,abbv);
 				this.myNPs.add(obs);
 			}
 		}
-		returnArff(this.myNPs, name);
-		returnArff2(this.myNPs, name);
+		returnArff2(this.myNPs, name, filepath, type);
 	}	
 
-	
+		
 	// return arff file
-	public void returnArff(ArrayList<Observation> myNPs, String name){
-		String path = "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/"+name+".arff"; // file to save
+	public void returnArff2(ArrayList<RelObservation> mySens, String name, String filepath, String type){
+		
+		String path = filepath + name + type;
 		String data = ""; // data
-		// File header
-		String header 	= "@relation metamap-weka.filters.unsupervised.instance.ClassRemover-Clast-N2-H";
-		String mynest 	= "@attribute nestl  numeric";
-		String mysubor 	= "@attribute subor {yes, no}";
-		String depen	= "@attribute gov 	{yes,no}";
-		String myarg 	= "@attribute arg	{subj, obj}";
-		String myfreq 	= "@attribute freq  numeric";
-		String mysimA 	= "@attribute simA  numeric";
-		String mysimB 	= "@attribute simB  numeric";
-		String mysimC 	= "@attribute simC  numeric";
-		String mylabel 	= "@attribute class {substance, event, object, resource, " +
-				"actor, organism, location, property, finding, other}"; // simple labels
-		// initialize header
-		data = data + 	header  + "\n" + mynest  + "\n" 	+ mysubor 	+ "\n" + depen  + "\n" +
-						myarg 	+ "\n" + myfreq  + "\n" 	+ mysimA 	+ "\n" + mysimB + "\n" + 
-						mysimC 	+ "\n" + mylabel + "\n\n" 	+ "@data" 	+ "\n";
-		// initialize data	
-		for (Observation o: myNPs){
-			String vector = o.nesting 	+ " , " + o.subor 	+ " , " + o.depen   + " , " + o.argum 	+ " , " +
-							o.freq 		+ " , " + o.similA 	+ " , " + o.similB 	+ " , " + o.similC 	+ " , " + o.simplabel;
-			data = data + vector + "\n";
-			
-			//------------------------------------------
-			//   testing  observations:
-			//
-			System.out.println("freq: "+o.freq);
-			System.out.println("nest: "+o.nesting);
-			System.out.println("sub?: "+o.subor);
-			System.out.println("gov?: "+o.depen);
-			System.out.println("arg?: "+o.argum);
-			System.out.println("simA: "+o.similA);
-			System.out.println("simB: "+o.similB);
-			System.out.println("simC: "+o.similC);
-			System.out.println("con:  "+o.label);
-			System.out.println("conS: "+o.simplabel);
-			System.out.println("===============================================");
-			//
-			//------------------------------------------
-			//   (.arff to be used by Weka)
-			
-		}		
-		new Write(path,data);
-	}
-	
-	
-	// return arff file 2 (multilabel)
-	public void returnArff2(ArrayList<Observation> mySens, String name){
-		String path = "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/"+name+"2.arff"; // file to save
-		String data = ""; // data
+		
 		// File header
 		String header 	= "@relation metamap-weka.filters.unsupervised.instance.ClassRemover-Clast-N2-H";
 		
-		String mynest 	= "@attribute nestl1  numeric";
+		// NP1
+		String mynest 	= "@attribute nestl1 numeric";
 		String mysubor 	= "@attribute subor1 {yes, no}";
-		String depen	= "@attribute gov1 	{yes,no}";
-		String myarg 	= "@attribute arg1	{subj, obj}";
+		String depen	= "@attribute gov1 	 {yes,no}";
+		String myarg 	= "@attribute arg1	 {subj, obj}";
 		String myfreq 	= "@attribute freq1  numeric";
 		String mysimA 	= "@attribute simA1  numeric";
 		String mysimB 	= "@attribute simB1  numeric";
 		String mysimC 	= "@attribute simC1  numeric";
 		
+		// NP2
 		String mynest2 	= "@attribute nestl2  numeric";
 		String mysubor2 = "@attribute subor2 {yes, no}";
 		String depen2	= "@attribute gov2 	{yes,no}";
@@ -301,22 +264,27 @@ public class FeatureVector{
 		String myfreq2 	= "@attribute freq2  numeric";
 		String mysimA2 	= "@attribute simA2  numeric";
 		String mysimB2 	= "@attribute simB2  numeric";
-		String mysimC2 	= "@attribute simC2  numeric";
+		String mysimC2 	= "@attribute simC2  numeric";		
 		
-		String mylabel = "@attribute class1 {substance, event, object, resource, " +
-				"actor, organism, location, property, finding, other}"; // simple labels
-		String mylabel2 = "@attribute class2 {substance, event, object, resource, " +
-				"actor, organism, location, property, finding, other}"; // simple labels
+		// NP1 type
+		String mylabel 	= "@attribute class1 {event, actor, resource, other}"; // simple labels
+		
+		// NP2 type
+		String mylabel2 = "@attribute class2 {event, actor, resource, other}"; // simple labels
+		
+		// control flow
+		String relation = "@attribute flow	{temporal, causal, none}";
 		
 		// initialize header
-		data = data + 	header  + 
-						"\n" + mynest  + "\n" 	+ mysubor 	+ "\n" + depen  + "\n" +
-						myarg 	+ "\n" + myfreq  + "\n" 	+ mysimA 	+ "\n" + mysimB + "\n" + 
-						mysimC 	+ "\n" + mylabel + 
-						"\n" + mynest2  + "\n" 	+ mysubor2 	+ "\n" + depen2  + "\n" +
-						myarg2 	+ "\n" + myfreq2  + "\n" 	+ mysimA2 	+ "\n" + mysimB2 + "\n" + 
-						mysimC2 + "\n" + mylabel2 + 
-						"\n\n" 	+ "@data" 	+ "\n";
+		data = data + 	header  	+ 
+						"\n" 		+ mynest  + "\n" 	+ mysubor 	+ "\n" + depen  + "\n" +
+						myarg 		+ "\n" + myfreq  + "\n" 	+ mysimA 	+ "\n" + mysimB + "\n" + 
+						mysimC 		+ "\n" + mylabel + 
+						"\n" 		+ mynest2  + "\n" 	+ mysubor2 	+ "\n" + depen2  + "\n" +
+						myarg2 		+ "\n" + myfreq2  + "\n" 	+ mysimA2 	+ "\n" + mysimB2 + "\n" + 
+						mysimC2 	+ "\n" + mylabel2 + "\n"	+ relation 	+
+						"\n\n" 		+ "@data" 	+ "\n";
+		
 		// initialize data
 		int bound = 0;// looping bound
 		if (mySens.size()%2 == 0){
@@ -326,26 +294,55 @@ public class FeatureVector{
 			bound = mySens.size()-1; // -1, if odd
 		}
 		for (int i=0;i<bound;i=i+2){ // increment iterator by 2
-			Observation o1 = mySens.get(i);
-			Observation o2 = mySens.get(i+1);
+			RelObservation o1 = mySens.get(i);
+			RelObservation o2 = mySens.get(i+1);
 			if (mySens.get(i).sentence == mySens.get(i+1).sentence){ // should belong to the same sentence
 				// non-inverted order
 				String vector = 
 					o1.nesting 	+ " , " + o1.subor 	+ " , " + o1.depen   + " , " + o1.argum 	+ " , " +
 					o1.freq 	+ " , " + o1.similA + " , " + o1.similB  + " , " + o1.similC 	+ " , " + o1.simplabel + " , " +
 					o2.nesting 	+ " , " + o2.subor 	+ " , " + o2.depen   + " , " + o2.argum 	+ " , " +
-					o2.freq 	+ " , " + o2.similA + " , " + o2.similB  + " , " + o2.similC 	+ " , " + o2.simplabel;
+					o2.freq 	+ " , " + o2.similA + " , " + o2.similB  + " , " + o2.similC 	+ " , " + o2.simplabel + " , " + 
+					o1.relation;
 				data = data + vector + "\n";
-				// inverted order
-				String vector2 = 
-						o2.nesting 	+ " , " + o2.subor 	+ " , " + o2.depen   + " , " + o2.argum 	+ " , " +
-						o2.freq 	+ " , " + o2.similA + " , " + o2.similB  + " , " + o2.similC 	+ " , " + o2.simplabel + " , " +
-						o1.nesting 	+ " , " + o1.subor 	+ " , " + o1.depen   + " , " + o1.argum 	+ " , " +
-						o1.freq 	+ " , " + o1.similA + " , " + o1.similB  + " , " + o1.similC 	+ " , " + o1.simplabel;
-				data = data + vector2 + "\n";
-			}
-		}		
-		new Write(path,data);
+				
+				//------------------------------------------
+				//   testing  observations:
+				//
+				System.out.println("freq1: "+o1.freq);
+				System.out.println("nest1: "+o1.nesting);
+				System.out.println("sub1?: "+o1.subor);
+				System.out.println("gov1?: "+o1.depen);
+				System.out.println("arg1?: "+o1.argum);
+				System.out.println("simA1: "+o1.similA);
+				System.out.println("simB1: "+o1.similB);
+				System.out.println("simC1: "+o1.similC);
+				System.out.println("con1:  "+o1.label);
+				System.out.println("-----------------------------------------------");
+				System.out.println("conS1: "+o1.simplabel);
+				System.out.println("-----------------------------------------------");
+				System.out.println("freq2: "+o2.freq);
+				System.out.println("nest2: "+o2.nesting);
+				System.out.println("sub2:  "+o2.subor);
+				System.out.println("gov2?: "+o2.depen);
+				System.out.println("arg2?: "+o2.argum);
+				System.out.println("simA2: "+o2.similA);
+				System.out.println("simB2: "+o2.similB);
+				System.out.println("simC2: "+o2.similC);
+				System.out.println("con2:  "+o2.label);
+				System.out.println("-----------------------------------------------");
+				System.out.println("conS2: "+o2.simplabel);
+				System.out.println("-----------------------------------------------");
+				System.out.println("rela:  "+o1.relation);				
+				System.out.println("===============================================");
+				//
+				//------------------------------------------
+				//   (.arff to be used by Weka)				
+				
+			}	
+		}
+		
+		new Write(path,data); // write .arff file
 	}
 	
 	

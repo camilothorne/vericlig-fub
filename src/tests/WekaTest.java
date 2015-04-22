@@ -1,7 +1,7 @@
 package tests;
 
 
-import Evaluation.WekaEval;
+import evaluation.WekaEval;
 
 
 public class WekaTest extends WekaEval {

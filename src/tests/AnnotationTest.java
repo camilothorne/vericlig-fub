@@ -1,9 +1,8 @@
 package tests;
 
 
-import corpora.RelationVectorB;
-import mymetamap.FeatureVector;
 import mymetamap.GuidAnn;
+import features.FeatureVector;
 import gov.nih.nlm.nls.metamap.MetaMapApi;
 
 
@@ -48,7 +47,7 @@ public class AnnotationTest {
 	  public static void featureRelExtraction() throws Exception{
 		  // this class encapsulates the whole
 		  // procedure
-		  new RelationVectorB("semrep-");
+		  new RelationVectorTest("semrep-");
 	  }
 	  
 	  
