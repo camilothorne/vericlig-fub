@@ -10,14 +10,15 @@
 	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/VerbNet/inspector-java-api/vn.jar"/>
 	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/VerbNet/java-api/edu.mit.jverbnet-1.2.0.jar"/>
 	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/stanford-parser-2012-05-22/Interface/DependenSee.jar"/>
-	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/java-api-jars/MetaMapApi.jar"/>
 	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/MedPost-SKR/lib/mps.jar"/>
-	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/SKR_Web_API_V2_1/lib/skrAPI.jar"/>
-	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/SKR_Web_API_V2_1/lib/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/SKR_Web_API_V2_1/lib/httpclient-4.1.1.jar"/>
-	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/SKR_Web_API_V2_1/lib/httpclient-cache-4.1.1.jar"/>
-	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/SKR_Web_API_V2_1/lib/httpcore-4.1.jar"/>
-	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/SKR_Web_API_V2_1/lib/httpcore-nio-4.1.jar"/>
-	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/SKR_Web_API_V2_1/lib/httpmime-4.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/camilo/nlp-frameworks/meta_map_bionlp/javaapi-jars/MetaMapApi.jar"/>
+	<classpathentry kind="lib" path="/home/camilo/nlp-frameworks/meta_map_bionlp/javaapi-jars/prologbeans.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/public_mm/javaapi-jars/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/public_mm/javaapi-jars/httpclient-4.1.1.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/public_mm/javaapi-jars/httpclient-cache-4.1.1.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/public_mm/javaapi-jars/httpcore-4.1.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/public_mm/javaapi-jars/httpcore-nio-4.1.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/public_mm/javaapi-jars/httpmime-4.1.1.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/public_mm/javaapi-jars/skrAPI.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -12,9 +12,9 @@ public class AnnotationTest {
 	
 	  // Main method
 	  public static void main(String[] args) throws Exception{
-		  //featureExtraction();
-		  featureRelExtraction();
-		  //printAnnotation();
+		  featureExtraction();
+		  //featureRelExtraction();
+		  printAnnotation();
 	  }
 	
 	

@@ -63,6 +63,7 @@ public class ReadXMLFile implements MyFeature{
 		this.sample = sample;
 		// we initialize the MetaMap annotator
 		ann = new GuidAnn(serverhost, serverport, "");
+		//ann = new GuidAnn(serverhost, "");
 		// we init the sentences
 		this.sentences = new ArrayList<mySentence>();
 		// we harvest the annotations
@@ -70,7 +71,7 @@ public class ReadXMLFile implements MyFeature{
 		// we print the corpus
 		printAnnotations();
 		if (timeout > -1) {
-			ann.setTimeout(timeout);
+			//ann.setTimeout(timeout);
 		}
 		long stopTime = System.currentTimeMillis(); // end time of FExt procedure
 		System.out.println("Time elapsed = " + (stopTime - startTime)); // print diff

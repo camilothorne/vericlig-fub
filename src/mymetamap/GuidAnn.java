@@ -73,10 +73,12 @@ public class GuidAnn implements MyFeature{
 		  
 		  // Constructs a new MetaMap query using specified host and port
 		  // It also constructs a parse
+		  //public GuidAnn(String serverHostname, String path) throws Exception{
 		  public GuidAnn(String serverHostname, int serverPort, String path) throws Exception{
 			  api = new MetaMapApiImpl();
 			  api.setHost(serverHostname);
 			  api.setPort(serverPort);
+			  //api.setPort(8888);
 			  this.path = path;
 			  // new buffer
 			  this.file = null;
@@ -161,9 +163,11 @@ public class GuidAnn implements MyFeature{
 	  		//Set server options
 			if (serverOptions.size() > 0) {
 				 api.setOptions(serverOptions);
+				 System.out.println("options successfully set!\n");
 		    }		    		    
 		    //Retrieve the results
-		    List<Result> resultList = api.processCitationsFromString(terms);
+			System.out.println(terms);
+		    List<Result> resultList = api.processCitationsFromString("promotion");
 		    for (Result result: resultList) {
 		      if (result != null) {
 		    	out.println("============================================================");
