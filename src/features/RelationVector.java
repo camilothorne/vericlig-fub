@@ -205,7 +205,7 @@ class RelObservation{
 //----------------------
 
 
-public class RelationVectorBase{
+public class RelationVector{
 	
 	
 	// extra fields 
@@ -217,7 +217,7 @@ public class RelationVectorBase{
 	
 	
 	// constructor
-	public RelationVectorBase(String name, ArrayList<mySentence> sents, 
+	public RelationVector(String name, ArrayList<mySentence> sents, 
 			String filepath, String type) throws Exception{
 		
 		abbv = new Abbrev();

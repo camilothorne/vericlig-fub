@@ -50,10 +50,13 @@ public class GuidAnn implements MyFeature{
 		  public static LexicalizedParser lp; // stanford parser
 		  public static TreePrint tp; // tree print
 		  public static CollinsHeadFinder head; // head finder 
-		  public static MetaMapApi api; // MetaMap query	
-		  public static String optssim; // simple MetaMap server options
-		  public static String opts; // complex MetaMap server options
+		  public static MetaMapApi api; // MetaMap query
 		  
+		  // MetaMap options
+		  public static String[] opts =
+				 {"--ignore_word_order","--all_derivational_variants", 
+		   		 "--all_acros_abbrs", "--word_sense_disambiguation",
+		   		 "--ignore_stop_phrases", "--allow_overmatches", "--threshold", "10"};  
 		  
 		  // Dynamic field(s)
 		  public BufferedReader file; // file to read
@@ -95,11 +98,6 @@ public class GuidAnn implements MyFeature{
 				  this.sents = this.readFile(path,file);
 				  this.processLines(this.sents);
 			  }
-			  // set MetaMap options
-			  opts = "--ignore_word_order --all_derivational_variants --threshold 10" + 
-		  		   		 " --all_acros_abbrs --word_sense_disambiguation --WSD localhost --silent" +
-		  		   		 " --ignore_stop_phrases --composite_phrases 3 --tagger localhost";
-			  optssim = "-a -r10 -y -o";
 			  this.mycorpus = new ArrayList<mySentence>();
 		  }
 		  
@@ -114,6 +112,16 @@ public class GuidAnn implements MyFeature{
 			  api.setTimeout(interval);
 		  }
 		  
+		  
+		  //set options
+		  public ArrayList<String> setOptions(){
+			  ArrayList<String> res = new ArrayList<String>();
+			  for (int i=0;i<opts.length;i++){
+				  res.add(opts[i]);
+			  }
+			  return res;
+		  }
+		  
 		 
 		  // Converting file to list of sentences
 		  // (one per line, otherwise, use sentence segmentator)
@@ -123,6 +131,7 @@ public class GuidAnn implements MyFeature{
 					String sCurrentLine;
 					file = new BufferedReader(new FileReader(filepath));
 					while ((sCurrentLine = file.readLine()) != null) {
+						System.out.println(sCurrentLine);
 						result.add(sCurrentLine);
 					}	 
 				} 
@@ -166,8 +175,7 @@ public class GuidAnn implements MyFeature{
 				 System.out.println("options successfully set!\n");
 		    }		    		    
 		    //Retrieve the results
-			System.out.println(terms);
-		    List<Result> resultList = api.processCitationsFromString("promotion");
+		    List<Result> resultList = api.processCitationsFromString(terms);
 		    for (Result result: resultList) {
 		      if (result != null) {
 		    	out.println("============================================================");
@@ -250,9 +258,9 @@ public class GuidAnn implements MyFeature{
 		   public void processLines(ArrayList<String> samples) throws Exception{			   
 			   int num = 0; // counter
 			   PrintStream myoutput = System.out; // print to stout			   		   
-			   List<String> myoptions = new ArrayList<String>(); // initialize options
-			   myoptions.add(optssim);	// set simple options	  
-			   myoptions.add(opts);	// set complex options		   			   
+			   ArrayList<String> myoptions = setOptions(); // initialize options
+			   //myoptions.add(optssim);	// set simple options	  
+			   //myoptions.add(opts);	// set complex options		   			   
 			   for (String samp: samples){
 				   List<CoreLabel> tokens = this.myTokenize(samp);// call tokenizer
 				   if ((tokens.size()>0)&&(num<3)){
@@ -278,9 +286,7 @@ public class GuidAnn implements MyFeature{
 		  // Tag one sentence only
 		  public void processLine(String sample) throws Exception{
 			   PrintStream myoutput = System.out; // print to stout			   		   
-			   List<String> myoptions = new ArrayList<String>(); // initialize options
-			   myoptions.add(optssim);	// set simple options	  
-			   myoptions.add(opts);	// set complex options		   			   
+			   List<String> myoptions = setOptions(); // initialize options	   			   
 			   List<CoreLabel> tokens = this.myTokenize(sample);// call tokenizer
 			   System.out.println("============================================================");
 			   System.out.println("SAMP : " + sample);
@@ -311,6 +317,7 @@ public class GuidAnn implements MyFeature{
 						for (Word wor: words){
 							np = np + " " + wor.toString().replaceAll("/.*", "");
 						}
+						System.out.println("processing... " + np);
 						process(np, num, myoutput, myoptions); // metamap annotation
 						System.out.println("............................................................");
 						System.out.println("Head noun : " + head.determineHead(tree));
@@ -395,9 +402,7 @@ public class GuidAnn implements MyFeature{
 			   // init counter
 			   int num = 0;		   		   
 			   // set options
-			   List<String> myoptions = new ArrayList<String>(); // initialize options
-			   myoptions.add(optssim);	// set simple options	  
-			   myoptions.add(opts);	// set complex options		   			   			   
+			   List<String> myoptions = setOptions(); // initialize options   			   			   
 			   // loop on sentences
 			   for (String samp: samples){				   
 				   // call tokenizer
@@ -424,9 +429,7 @@ public class GuidAnn implements MyFeature{
 		  // Mine one sentence only
 		  public void mineLine(String sample) throws Exception{		  
 			   // set options
-			   List<String> myoptions = new ArrayList<String>(); // initialize
-			   myoptions.add(optssim);	// set simple options	  
-			   myoptions.add(opts);	// set complex options		   
+			   List<String> myoptions = setOptions(); // initialize options	   
 			   // call tokenizer
 			   List<CoreLabel> tokens = this.myTokenize(sample);// call tokenizer
 			   // set/call parser

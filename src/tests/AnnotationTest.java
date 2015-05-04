@@ -1,7 +1,7 @@
 package tests;
 
 
-import corpora.RelationVector;
+import corpora.Relation;
 import mymetamap.GuidAnn;
 import features.FeatureVector;
 import gov.nih.nlm.nls.metamap.MetaMapApi;
@@ -13,7 +13,7 @@ public class AnnotationTest {
 	
 	  // Main method
 	  public static void main(String[] args) throws Exception{
-		  featureExtraction();
+		  //featureExtraction();
 		  //featureRelExtraction();
 		  printAnnotation();
 	  }
@@ -48,7 +48,7 @@ public class AnnotationTest {
 	  public static void featureRelExtraction() throws Exception{
 		  // this class encapsulates the whole
 		  // procedure
-		  new RelationVector("semrep-");
+		  new Relation("semrep-");
 	  }
 	  
 	  

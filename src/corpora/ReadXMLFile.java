@@ -269,8 +269,8 @@ public class ReadXMLFile implements MyFeature{
 	// method stripping the annotations
 	public void printAnnotations() {
 		// setting files to save results
-		this.mypath = "/home/camilo/Desktop/mmcorpus-results-"+getMyDate()+".txt";
-		this.sents = "/home/camilo/Desktop/mmcorpus-raw"+getMyDate()+".txt";		
+		this.mypath = "/home/camilo/Desktop/mm-test/mmcorpus-results-"+getMyDate()+".txt";
+		this.sents = "/home/camilo/Desktop/mm-test/mmcorpus-raw"+getMyDate()+".txt";		
 		// saving the results in strings
     	String result = "";
     	String result2 = "";   	

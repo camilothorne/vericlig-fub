@@ -70,7 +70,7 @@ public class ApiTest {
     if (serverOptions.size() > 0) {
       api.setOptions(serverOptions);
     }
-    List<Result> resultList = api.processCitationsFromString(terms);
+    List<Result> resultList = api.processCitationsFromString("promotion");
     for (Result result: resultList) {
       if (result != null) {
 	out.println("input text: ");

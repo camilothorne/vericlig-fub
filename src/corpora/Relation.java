@@ -3,7 +3,7 @@ package corpora;
 
 import java.util.ArrayList;
 import corpora.ReadXMLFile;
-import features.RelationVectorBase;
+import features.RelationVector;
 
 
 import mymetamap.mySentence;
@@ -12,7 +12,7 @@ import mymetamap.mySentence;
 // Instantiates RelationVector to an specific
 // annotated corpus
 // 
-public class RelationVector extends RelationVectorBase{
+public class Relation extends RelationVector{
 	
 	
 	// Fields
@@ -23,7 +23,7 @@ public class RelationVector extends RelationVectorBase{
     
     
     // Constructor
-    public RelationVector(String name) throws Exception{    	
+    public Relation(String name) throws Exception{    	
     	
     	// We call the superclass constructor
     	super(name, mysents, mypath, mytype);
