@@ -53,10 +53,10 @@ public class GuidAnn implements MyFeature{
 		  public static MetaMapApi api; // MetaMap query
 		  
 		  // MetaMap options
-		  public static String[] opts =
-				 {"--ignore_word_order","--all_derivational_variants", 
+		  public static String[] opts = {};
+/*				 {"--ignore_word_order","--all_derivational_variants", 
 		   		 "--all_acros_abbrs", "--word_sense_disambiguation",
-		   		 "--ignore_stop_phrases", "--allow_overmatches", "--threshold", "10"};  
+		   		 "--ignore_stop_phrases", "--allow_overmatches", "--threshold", "10"};  */
 		  
 		  // Dynamic field(s)
 		  public BufferedReader file; // file to read

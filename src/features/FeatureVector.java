@@ -216,7 +216,7 @@ public class FeatureVector{
 	
 	// constructor
 	public FeatureVector(String name) throws Exception{
-		file = new ReadXMLFile("/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/adjudicated.xml");
+		file = new ReadXMLFile("/home/camilo/meta-map-exp/meta-map-gold/adjudicated.xml");
 		abbv = new Abbrev();
 		// init samples
 		this.myNPs = new ArrayList<Observation>();
@@ -235,7 +235,7 @@ public class FeatureVector{
 	
 	// return arff file
 	public void returnArff(ArrayList<Observation> myNPs, String name){
-		String path = "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/"+name+".arff"; // file to save
+		String path = "/home/camilo/meta-map-exp/meta-map-gold/"+name+".arff"; // file to save
 		String data = ""; // data
 		// File header
 		String header 	= "@relation metamap-weka.filters.unsupervised.instance.ClassRemover-Clast-N2-H";
@@ -284,7 +284,7 @@ public class FeatureVector{
 	
 	// return arff file 2 (multilabel)
 	public void returnArff2(ArrayList<Observation> mySens, String name){
-		String path = "/home/camilo/Desktop/Com-Sem-Frams/meta-map/meta-map-gold/"+name+"2.arff"; // file to save
+		String path = "/home/camilo/meta-map-exp/meta-map-gold/"+name+"2.arff"; // file to save
 		String data = ""; // data
 		// File header
 		String header 	= "@relation metamap-weka.filters.unsupervised.instance.ClassRemover-Clast-N2-H";

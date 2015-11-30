@@ -150,9 +150,10 @@ public class ReadXMLFile implements MyFeature{
     		// to measure size
     		int size = 0;
     		// set MetaMap options
-			List<String> myoptions = new ArrayList<String>();
-			myoptions.add(ann.optssim);	  
-			myoptions.add(ann.opts);	
+			List<String> myoptions = ann.setOptions();
+			//myoptions = ann.setOptions();
+			//myoptions.add(ann.optssim);	  
+			//myoptions.add(ann.opts);	
     		// get sentences
 	    	NodeList nList = doc.getElementsByTagName("Sentence");
 	    	// scan sentences
