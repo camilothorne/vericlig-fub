@@ -1,2 +1,5 @@
 /bin/
 /target/
+/babelnet.log
+/resources/
+/config/
