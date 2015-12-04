@@ -9,7 +9,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 
 import mymetamap.DepenParse;
-import mymetamap.GuidAnn;
+import mymetamap.MMAnnotator;
 import mymetamap.MyFeature;
 import mymetamap.myNounPhrase;
 import mymetamap.mySentence;
@@ -42,7 +42,7 @@ public class ReadXMLFile implements MyFeature{
 	// MetaMap timeout
 	private static int timeout = -1; // use default timeout
 	// MetaMap
-	private static GuidAnn ann;
+	private static MMAnnotator ann;
 	
 	
 	// file to annotate
@@ -62,7 +62,7 @@ public class ReadXMLFile implements MyFeature{
 		long startTime = System.currentTimeMillis(); // init time of FExt procedure
 		this.sample = sample;
 		// we initialize the MetaMap annotator
-		ann = new GuidAnn(serverhost, serverport, "");
+		ann = new MMAnnotator(serverhost, serverport, "");
 		//ann = new GuidAnn(serverhost, "");
 		// we init the sentences
 		this.sentences = new ArrayList<mySentence>();
@@ -135,7 +135,7 @@ public class ReadXMLFile implements MyFeature{
 
 
 	// method harvesting the annotations
-	public void mineNPs(GuidAnn ann) {			
+	public void mineNPs(MMAnnotator ann) {			
 		// read the file
 	    try {
 	    	// read XML file
@@ -256,7 +256,7 @@ public class ReadXMLFile implements MyFeature{
 	
 	 	
 	// extract simple annotations from sentence (without concept annotations)
-	public static void noConAnnotate(String sentence, GuidAnn ann) throws Exception{
+	public static void noConAnnotate(String sentence, MMAnnotator ann) throws Exception{
 		// we use the base feature extraction methods  
 		ann.mineLine(sentence);
 	}

@@ -33,8 +33,8 @@ public class RelMap
         
         StringBuffer buffer2 = new StringBuffer(c);
         
-        //String bufferStr = buffer.toString();
-        //myIntSRObj.setField("APIText", bufferStr);
+        String bufferStr = buffer.toString();
+        myIntSRObj.setField("APIText", bufferStr);
 
         String bufferStr2 = buffer2.toString();
         myIntSRObj.setField("APIText", bufferStr2);

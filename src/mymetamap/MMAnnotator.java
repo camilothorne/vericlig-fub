@@ -41,7 +41,7 @@ import gov.nih.nlm.nls.metamap.*;
 
 
 // Collect/display MMTx, syntactic and POS annotations
-public class GuidAnn implements MyFeature{
+public class MMAnnotator implements MyFeature{
 
 	
 		  // Public static fields
@@ -66,10 +66,12 @@ public class GuidAnn implements MyFeature{
 		  public GrammaticalStructure gf; // grammatical relations
 		  public ArrayList<String> sents; // sentences to parse
 		  public ArrayList<mySentence> mycorpus; // storing NPs
-
+		  
+		  // Other annotation methods
+		  
 		  
 		  // Generic MetaMap query constructor
-		  public GuidAnn() {
+		  public MMAnnotator() {
 			  api = new MetaMapApiImpl();
 		  }
 		  
@@ -77,7 +79,7 @@ public class GuidAnn implements MyFeature{
 		  // Constructs a new MetaMap query using specified host and port
 		  // It also constructs a parse
 		  //public GuidAnn(String serverHostname, String path) throws Exception{
-		  public GuidAnn(String serverHostname, int serverPort, String path) throws Exception{
+		  public MMAnnotator(String serverHostname, int serverPort, String path) throws Exception{
 			  api = new MetaMapApiImpl();
 			  api.setHost(serverHostname);
 			  api.setPort(serverPort);
@@ -336,7 +338,7 @@ public class GuidAnn implements MyFeature{
 					
 				}
 		  }
-		  
+		  	  
 
 		  //------------------------
 		  // C. Tree post-processing

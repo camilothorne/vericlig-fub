@@ -1,20 +1,26 @@
-package mymetamap;
+package tolearn;
 
-import edu.smu.tspell.wordnet.NounSynset;
-import edu.smu.tspell.wordnet.Synset;
-import edu.smu.tspell.wordnet.SynsetType;
-import edu.smu.tspell.wordnet.VerbSynset;
-import edu.smu.tspell.wordnet.WordNetDatabase;
+import edu.smu.tspell.wordnet.*;
 
-public class WNTagger {
-	
+/**
+ * Displays synsets, hypernyms and hyponyms for content words:
+ * 1. Nouns
+ * 2. Verbs
+ * 3. Adjectives
+ * 
+ * N.B. WordNet (wn) needs to be installed. This API is
+ * nothing but a command-line wn front-end wrapper.
+ */
+
+public class WordNet{
+
 	// global field
 	private static WordNetDatabase database;
 	
 	// constructor
-	public WNTagger(){
+	public WordNet(){
 		// setting the system path to the wn distrib 
-		System.setProperty("wordnet.database.dir", "/opt/local/share/WordNet-3.0/dict");
+		System.setProperty("wordnet.database.dir", "/home/camilo/nlp-semantics/WordNet/WordNet-3.0/dict");
 		this.database = WordNetDatabase.getFileInstance();
 	}
 	
@@ -28,18 +34,15 @@ public class WNTagger {
 		// computing + printing synsets, hyponyms, hypernyms
 		Synset[] synsets = database.getSynsets(s, SynsetType.NOUN);
 		for (int i = 0; i < synsets.length; i++) {
-			
 			nounSynset = (NounSynset)(synsets[i]); // noun synset
 			hyponyms = nounSynset.getHyponyms();// noun hyponyms
 			hypernyms = nounSynset.getHypernyms();// noun hypernyms
-			
 			// print synset + hypernyms + hyponyms
 			System.out.println(nounSynset.getWordForms()[0] + 
 	            ": " + nounSynset.getDefinition() + ") has " 
 	    		+ hyponyms.length + " hyponyms and "
 	    		+ hypernyms.length + " hyperyms");
 		}
-        System.out.print("................................................................\n");
 	}
 		
 	// verb method
@@ -48,28 +51,24 @@ public class WNTagger {
 		VerbSynset verbSynset; // synset
 		NounSynset[] topics; // hyponyms
 		VerbSynset[] hypernyms;	// hypernyms
-		//String[] frames; //frames
+		String[] frames; //frames
 		Synset[] synsets; //synsets
 		
 		// computing + printing synsets, hyponyms, hypernyms
 		synsets = database.getSynsets(s, SynsetType.VERB);
 		for (int i = 0; i < synsets.length; i++) {
-			
 			verbSynset = (VerbSynset)(synsets[i]); // verb synset
 			topics = verbSynset.getTopics();// # of verb topics
 			hypernyms = verbSynset.getHypernyms();// # of verb hypernyms
-			//frames = verbSynset.getSentenceFrames(); // verb frames
-			
+			frames = verbSynset.getSentenceFrames();
 			// print synset + hypernyms
 			System.out.println(verbSynset.getWordForms()[0] + 
-	            ": (" + verbSynset.getDefinition() + ") has " 
+	            ": " + verbSynset.getDefinition() + ") has " 
 	    		+ hypernyms.length + " hyperyms");
-			
 			// print frames
-			//for (int j = 0; j < frames.length; j++){
-			//	System.out.println(frames[j]);
-			//}
-			
+			for (int j = 0; j < frames.length; j++){
+				System.out.println(frames[j]);
+			}
 			// print topics
 			for (int j = 0; j < topics.length; j++){
 				String[] wfs = topics[j].getWordForms();
@@ -79,7 +78,16 @@ public class WNTagger {
 				System.out.println();
 			}
 		}
-        System.out.print("................................................................\n");
 	}
 	
+	// main method (test)
+	public static void main(String[] args){
+		String test1 = "therapy";
+		String test3 = "give";
+		WordNet wn = new WordNet();
+		//wn.exploreNoun(test1);
+		wn.exploreVerb(test3);
+	}
+
 }
+

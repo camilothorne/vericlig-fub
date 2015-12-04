@@ -78,7 +78,7 @@ public class MMTagger{
         	  System.out.print("\n####################################################\n");
           	  System.out.print("###     JOB Nr. "+ n +"\n");
           	  System.out.print("####################################################\n\n");
-          	  prettyPrintA(results);
+          	  //prettyPrintA(results);
           	  System.out.print(results);          	  
            }
           else{
@@ -106,21 +106,22 @@ public class MMTagger{
    public static void prettyPrintA(String s){	   
 	   String[] lines = s.split("\n");
 	   for (String lin: lines){
-		   if (lin.contains("Phrase")){
-			   System.out.println(lin);
-		   }
-		   if (lin.contains("Candidates")){
-			   System.out.println(lin);
-		   }
-		   if (lin.contains("Mapping")){
-			   System.out.println(lin);
-		   }
-		   if (lin.endsWith("]")){
-			   System.out.println(lin);
-		   }
-		   if (lin==""){
-			   System.out.println(lin);
-		   }
+		   System.out.println(lin);
+//		   if (lin.contains("Phrase")){
+//			   System.out.println(lin);
+//		   }
+//		   if (lin.contains("Candidates")){
+//			   System.out.println(lin);
+//		   }
+//		   if (lin.contains("Mapping")){
+//			   System.out.println(lin);
+//		   }
+//		   if (lin.endsWith("]")){
+//			   System.out.println(lin);
+//		   }
+//		   if (lin==""){
+//			   System.out.println(lin);
+//		   }
 	   }
 	   
    }

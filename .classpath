@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="config"/>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/rw-files"/>
 	<classpathentry kind="lib" path="/home/camilo/nlp-frameworks/weka/mulan-1.4.0/weka-3.7.6.jar"/>
 	<classpathentry kind="lib" path="/home/camilo/nlp-semantics/stanford-parser-2012-05-22/stanford-parser.jar"/>
@@ -13,12 +18,30 @@
 	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/meta_map_bionlp/MedPost-SKR/lib/mps.jar"/>
 	<classpathentry kind="lib" path="/home/camilo/nlp-frameworks/meta_map_bionlp/javaapi-jars/MetaMapApi.jar"/>
 	<classpathentry kind="lib" path="/home/camilo/nlp-frameworks/meta_map_bionlp/javaapi-jars/prologbeans.jar"/>
-	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/public_mm/javaapi-jars/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/public_mm/javaapi-jars/httpclient-4.1.1.jar"/>
 	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/public_mm/javaapi-jars/httpclient-cache-4.1.1.jar"/>
-	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/public_mm/javaapi-jars/httpcore-4.1.jar"/>
 	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/public_mm/javaapi-jars/httpcore-nio-4.1.jar"/>
-	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/public_mm/javaapi-jars/httpmime-4.1.1.jar"/>
 	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/public_mm/javaapi-jars/skrAPI.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/BabelNet"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/BabelNet/Babelfy-online-API-1.0/lib/babelfy-commons-1.0.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/BabelNet/Babelfy-online-API-1.0/lib/commons-collections-3.2.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/BabelNet/Babelfy-online-API-1.0/lib/commons-configuration-1.5.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/BabelNet/Babelfy-online-API-1.0/lib/commons-lang-2.3.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/BabelNet/Babelfy-online-API-1.0/lib/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/BabelNet/Babelfy-online-API-1.0/lib/gson-2.3.1.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/BabelNet/Babelfy-online-API-1.0/lib/httpclient-4.3.6.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/BabelNet/Babelfy-online-API-1.0/lib/httpcore-4.3.3.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/BabelNet/Babelfy-online-API-1.0/lib/httpmime-4.3.6.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/BabelNet/Babelfy-online-API-1.0/lib/jltutils-2.0.4.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/BabelNet/Babelfy-online-API-1.0/babelfy-online-1.0.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>

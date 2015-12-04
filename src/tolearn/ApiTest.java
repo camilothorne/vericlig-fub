@@ -1,4 +1,4 @@
-package tests;
+package tolearn;
 
 import java.io.InputStream;
 import java.io.PrintStream;

@@ -4,11 +4,11 @@ package tests;
 import evaluation.WekaEval;
 
 
-public class WekaTest extends WekaEval {
+public class ClassificationTest extends WekaEval {
 
 	
 	// constructor
-	public WekaTest(String train_file, String eval_file) throws Exception {
+	public ClassificationTest(String train_file, String eval_file) throws Exception {
 		super(train_file, eval_file);
 	}
 	
@@ -23,7 +23,7 @@ public class WekaTest extends WekaEval {
     		System.out.println("###====================================###");	
     		System.out.println("### 'unigram' corpus");
     		System.out.println("###====================================###");
-    		new WekaTest(train1,eval1);
+    		new ClassificationTest(train1,eval1);
     	}
     	catch(Exception e){
     		e.printStackTrace();

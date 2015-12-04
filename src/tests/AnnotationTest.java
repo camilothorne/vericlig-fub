@@ -1,9 +1,10 @@
 package tests;
 
 
-import corpora.Relation;
-import mymetamap.GuidAnn;
-import features.FeatureVector;
+//import corpora.Relation;
+import mymetamap.GenAnnotator;
+//import mymetamap.MMAnnotator;
+//import features.FeatureVector;
 import gov.nih.nlm.nls.metamap.MetaMapApi;
 
 
@@ -13,21 +14,22 @@ public class AnnotationTest {
 	
 	  // Main method
 	  public static void main(String[] args) throws Exception{
-		  //featureExtraction();
-		  //featureRelExtraction();
 		  printAnnotation();
 	  }
 	
 	
-	  // to display MetaMap + Stanford parser annotations
+	  // to display Taggers + Stanford parser annotations
 	  public static void printAnnotation() throws Exception{
-		  //parameters
+		  
+		  //MetaMap parameters
 		  String serverhost = MetaMapApi.DEFAULT_SERVER_HOST; // default host
 		  int serverport = MetaMapApi.DEFAULT_SERVER_PORT; 	// default port
 		  int timeout = -1; // use default timeout		  
+		  
 		  // we instantiate the class
 		  String path = "/home/camilo/meta-map-exp/mmcorpus-raw.guid";
-		  GuidAnn frontEnd = new GuidAnn(serverhost, serverport, path); // result object
+		  GenAnnotator frontEnd = new GenAnnotator(serverhost, serverport, path); // result object
+		  
 		  // timeout
 		  if (timeout > -1) {
 		    frontEnd.setTimeout(timeout);
@@ -35,21 +37,21 @@ public class AnnotationTest {
 	  }
 	 	
 	
-	  // to extract a set of observations from a
-	  // training corpus
-	  public static void featureExtraction() throws Exception{
-		  // this class encapsulates the whole
-		  // procedure
-		  new FeatureVector("semrepB");
-	  }
-
-	  // to extract a set of observations from a
-	  // training corpus with relations
-	  public static void featureRelExtraction() throws Exception{
-		  // this class encapsulates the whole
-		  // procedure
-		  new Relation("semrep-");
-	  }
+//	  // to extract a set of observations from a
+//	  // training corpus
+//	  public static void featureExtraction() throws Exception{
+//		  // this class encapsulates the whole
+//		  // procedure
+//		  new FeatureVector("semrepB");
+//	  }
+//
+//	  // to extract a set of observations from a
+//	  // training corpus with relations
+//	  public static void featureRelExtraction() throws Exception{
+//		  // this class encapsulates the whole
+//		  // procedure
+//		  new Relation("semrep-");
+//	  }
 	  
 	  
 }

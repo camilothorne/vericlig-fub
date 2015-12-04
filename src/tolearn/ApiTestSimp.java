@@ -1,8 +1,9 @@
-package tests;
+package tolearn;
 
 import java.io.PrintStream;
 import java.util.List;
 import java.util.ArrayList;
+
 import gov.nih.nlm.nls.metamap.AcronymsAbbrevs;
 import gov.nih.nlm.nls.metamap.ConceptPair;
 import gov.nih.nlm.nls.metamap.Ev;

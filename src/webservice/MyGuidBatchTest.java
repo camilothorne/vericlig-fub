@@ -1,7 +1,6 @@
 package webservice;
 
 
-import mymetamap.MyGuidBatch;
 
 
 public class MyGuidBatchTest extends MyGuidBatch{

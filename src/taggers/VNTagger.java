@@ -1,4 +1,4 @@
-package mymetamap;
+package taggers;
 
 
 // java APIs
@@ -19,17 +19,17 @@ import edu.mit.jverbnet.index.IVerbIndex;
 import edu.mit.jverbnet.index.VerbIndex;
 
 
-public class VerbNet {
+public class VNTagger {
 
 	
 	// fields
-	String path = "/home/camilo/Desktop/Com-Sem-Frams/VerbNet/verbnet-3.2";// path
+	String path = "/home/camilo/nlp-semantics/VerbNet/verbnet-3.2";// path
 	String opt0; // pre arg options
 	String opt1; // post arg options
 	
 	
 	// constructor
-	public VerbNet(String opt0, String opt1){
+	public VNTagger(String opt0, String opt1){
 		this.opt0=opt0;
 		this.opt1=opt1;
 	}
@@ -68,7 +68,7 @@ public class VerbNet {
 	public static void main(String[] args){
 		String pre = " -i -Vcq -O";
 		String post = "";
-		VerbNet mvn = new VerbNet(pre, post);
+		VNTagger mvn = new VNTagger(pre, post);
 		try{
 			mvn.getVerbA("give");
 			mvn.getVerbB("give");
