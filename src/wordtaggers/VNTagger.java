@@ -1,4 +1,4 @@
-package taggers;
+package wordtaggers;
 
 
 // java APIs

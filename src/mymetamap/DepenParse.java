@@ -8,10 +8,10 @@ import java.util.Date;
 import java.util.Set;
 import java.io.StringReader;
 
-import taggers.WNTagger;
 import webservice.MMTagger;
 
 
+import wordtaggers.WNTagger;
 //stanford dep parser + pos/sem tags
 import edu.stanford.nlp.objectbank.TokenizerFactory;
 import edu.stanford.nlp.process.CoreLabelTokenFactory;
@@ -24,6 +24,7 @@ import edu.stanford.nlp.process.PTBTokenizer;
 import edu.stanford.nlp.parser.lexparser.LexicalizedParser;
 import edu.stanford.nlp.ling.TaggedWord;
 import edu.stanford.nlp.process.Morphology;
+
 
 
 

@@ -43,5 +43,9 @@
 	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/BabelNet/Babelfy-online-API-1.0/lib/httpmime-4.3.6.jar"/>
 	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/BabelNet/Babelfy-online-API-1.0/lib/jltutils-2.0.4.jar"/>
 	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/BabelNet/Babelfy-online-API-1.0/babelfy-online-1.0.jar"/>
+	<classpathentry kind="lib" path="/home/camilo/nlp-semantics/stanford-corenlp-2012-05-22/stanford-corenlp-2012-05-22.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/stanford-corenlp-2012-05-22/joda-time.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/stanford-corenlp-2012-05-22/stanford-corenlp-2012-05-22-models.jar"/>
+	<classpathentry kind="lib" path="/media/win-seven/Users/camilo/Google Drive/Comp-Sem-Frameworks/stanford-corenlp-2012-05-22/xom.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

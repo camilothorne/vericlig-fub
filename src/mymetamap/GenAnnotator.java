@@ -15,8 +15,9 @@ import java.util.HashSet;
 
 
 
-import taggers.BNTagger;
-import taggers.WNTagger;
+
+import wordtaggers.BNTagger;
+import wordtaggers.WNTagger;
 //Stanford NLP API
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.ling.Word;
@@ -319,9 +320,9 @@ public class GenAnnotator implements MyFeature{
 					   tp.printTree(this.parse.flatten()); // print dependencies 
 					   
 					   // annotate NPs, NNs and verbs
-					   // annotateTreeMM(this.parse,num,myoutput, myoptions); //MetaMap					   
+					   annotateTreeMM(this.parse,num,myoutput, myoptions); //MetaMap					   
 					   // annotateTreeWN(this.parse,num,myoutput); // WordNet
-					   annotateTreeBN(this.parse,num,myoutput); // BabelNet
+					   // annotateTreeBN(this.parse,num,myoutput); // BabelNet
 				   }				   	
 			   }			   
 		  }		   
