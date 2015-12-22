@@ -21,7 +21,6 @@ import mymetamap.mySentence;
 // Thesauri
 //import wordtaggers.BNTagger;
 import wordtaggers.WNTagger;
-//import edu.smu.tspell.wordnet.Synset;
 
 
 //Stanford NLP API
