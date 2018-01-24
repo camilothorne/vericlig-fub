@@ -1,9 +1,7 @@
 # vericlig-fub
 
-Code for the FUB VeriCliG project. The pipeline contained in this repository will train predictive models to detect
-clinical acticities (therapies) in clinical documents. The models rely on distributional features extracted from UMLS 
-Metathesaurus annotations.
+Java code associated to the VeriCliG project (Free University of Bozen-Bolzano).
 
-The UMLS Metathesaurus and the SemRep corpus must be downloaded and installed separately, and the system paths updated.
-Also, the Stanford CoreNLP NLP pipeline must be installed (the dependecy parser, with its associated tokenizer and 
-NER modules).
+Contents: * UMLS MetaMap API * Stanford Parser API * Feature extraction classes * Evaluation classes
+
+Requirements: * UMLS Metathesaurus and MetaMap server installation * Python >2.4, together with PyPlot, SciPy and NLTK libraries
